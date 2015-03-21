@@ -8,6 +8,21 @@ User's will enter a URL such as `koinonia.com/image/{md5-hash}` which will load 
 
 If the image hasn't been processed yet then the URL will display a message to indicate the image isn't ready for viewing yet.
 
+## Quick start
+
+To run everything:
+
+```bash
+docker-compose up
+curl $(boot2docker ip):8080
+```
+
+To stop everything:
+
+```bash
+docker-compose stop
+```
+
 ## front-end
 
 Clojure front-end application, which displays specified shared image and allows user to create a new sharable image URL.

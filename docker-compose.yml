@@ -1,0 +1,21 @@
+frontend:
+  build: ./front-end
+  ports:
+    - "8080:5000"
+  external_links:
+    - spurious-s3:s3.spurious.localhost
+    - spurious-sqs:sqs.spurious.localhost
+    - spurious-dynamo:dynamodb.spurious.localhost
+  links:
+    - redis
+  environment:
+    DEBUG: true
+
+backend:
+  build: ./back-end
+  external_links:
+    - spurious-s3:s3.spurious.localhost
+    - spurious-sqs:sqs.spurious.localhost
+
+redis:
+  image: redis
